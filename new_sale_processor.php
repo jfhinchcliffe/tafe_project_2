@@ -17,7 +17,7 @@ else {
 }
 ?>
 <?php
-  $salesperson_name = $_POST['salesperson_id'];
+  $salesperson_name = $_POST['salesperson_name'];
   $salesperson_id =  0;
   require_once('config.php');
 
@@ -28,8 +28,8 @@ else {
 }
 else {
   while ($row = mysql_fetch_array($results)) {
-    $salesperson_id = $row[salesperson_id];
-    echo "salesperson_id" .  $salesperson_id;
+    $salesperson_id = $row[salesperson];
+    echo "salesperson id is " . $salesperson_id;
   }
 }
 ?>
@@ -51,7 +51,6 @@ else {
 }
 ?>
 <?php
-/*
     $mysqli = new mysqli( 'localhost', 'root', 'root', 'w_c_a' );
     $date = date("d.m.y");
     // Check our connection
@@ -74,5 +73,4 @@ else {
 
     // Close our connection
     $mysqli->close();
-    */
 ?>

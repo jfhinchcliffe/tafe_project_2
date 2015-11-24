@@ -25,7 +25,7 @@
           ?>
           </select>
         </p>
-        <p>Sold By #: <select name="salesperson_id">
+        <p>Sold By #: <select name="salesperson_name">
           <?php
               require_once('config.php');
               $getData = mysql_query("SELECT * FROM salesperson");
@@ -33,7 +33,7 @@
               while($viewData = mysql_fetch_array($getData))
               {
                 ?>
-                  <option id="<?php echo $viewData['salesperson_id']; ?>"><?php echo $viewData['name']; ?></option>
+                  <option id="<?php echo $viewData['salespeson']; ?>"><?php echo $viewData['name']; ?></option>
               <?php } ?>
           ?>
           </select>
