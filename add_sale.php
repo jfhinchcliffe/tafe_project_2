@@ -12,29 +12,47 @@
 
     <FORM method="post" action="new_sale_processor.php">
 
-      <p> Car:
-
-        <p>Manufacturer: <select name="manufacturer">
-          <option id="0">-- Select an Option --</option>
-
+        <p>Car Registration #: <select name="registration">
           <?php
               require_once('config.php');
-              $getData = mysql_query("SELECT * FROM car");
+              $getData = mysql_query("SELECT * FROM car WHERE available = 1");
 
               while($viewData = mysql_fetch_array($getData))
               {
-                $long_description =  $viewData['registration'];
                 ?>
-                  <option id="<?php echo $viewData['stock_no']; ?>"><?php echo $long_description; ?></option>
+                  <option id="<?php echo $viewData['stock_no']; ?>"><?php echo $viewData['registration']; ?></option>
+              <?php } ?>
+          ?>
+          </select>
+        </p>
+        <p>Sold By #: <select name="salesperson_id">
+          <?php
+              require_once('config.php');
+              $getData = mysql_query("SELECT * FROM salesperson");
+
+              while($viewData = mysql_fetch_array($getData))
+              {
+                ?>
+                  <option id="<?php echo $viewData['salesperson_id']; ?>"><?php echo $viewData['name']; ?></option>
               <?php } ?>
           ?>
           </select>
         </p>
 
-      <p> Address: <input type="text" name ="address" size="40"></p>
-      <p> Email: <input type="text" name="email"></p>
-      <p> Phone: <input type ="text" name="phone" size="20"></p>
-      <input type ="hidden" name="formtype" value="new_customer">
+        <p>Sold To #: <select name="customer_id">
+          <?php
+              require_once('config.php');
+              $getData = mysql_query("SELECT * FROM customer");
+
+              while($viewData = mysql_fetch_array($getData))
+              {
+                ?>
+                  <option id="<?php echo $viewData['customer_id']; ?>"><?php echo $viewData['name']; ?></option>
+              <?php } ?>
+          ?>
+          </select>
+        </p>
+      <input type ="hidden" name="formtype" value="new_sale_processor">
       <input type="submit" name="submit" value= "Submit">
       <input type ="reset" name="reset" value ="Reset">
 

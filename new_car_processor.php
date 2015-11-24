@@ -14,7 +14,7 @@
   $manufacturer_id =  0;
   require_once('config.php');
 
-  $query = "SELECT manufacturer_id FROM manufacturer WHERE name = '$manufacturer'";
+  $query = "SELECT manufacturer_id FROM manufacturer WHERE name = '$manufacturer' LIMIT 1";
   $results = mysql_query($query, $conn);
   if (!$results) {
     die ("Error selecting car data: " .mysql_error());
