@@ -16,6 +16,32 @@ else {
   }
 }
 ?>
+
+<?php
+    $mysqli = new mysqli( 'localhost', 'root', 'root', 'w_c_a' );
+    $date = date("d.m.y");
+    // Check our connection
+    if ( $mysqli->connect_error ) {
+      die( 'Connect Error: ' . $mysqli->connect_errno . ': ' . $mysqli->connect_error );
+    } else {
+      echo ("Connected!");
+    }
+    // Insert our data
+    $sql = "UPDATE car SET available=0 WHERE stock_no=$stock_no ";
+    $insert = $mysqli->query($sql);
+
+    // Print response from MySQL
+    if ( $insert ) {
+      echo "Success! Row ID: {$mysqli->insert_id}";
+      echo "<a href=add_sale.php>Back to Add Sale</a>";
+    } else {
+      die("Error: {$mysqli->errno} : {$mysqli->error}");
+    }
+
+    // Close our connection
+    $mysqli->close();
+?>
+
 <?php
   $salesperson_name = $_POST['salesperson_name'];
   $salesperson_id =  0;

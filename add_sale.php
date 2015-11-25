@@ -59,7 +59,7 @@
     </form>
     <?php
       require_once('config.php');
-
+      $salesperson_id = $_SESSION["logged_in"];
       $query = "SELECT * FROM sale WHERE salesperson_id = $salesperson_id";
       $results = mysql_query($query, $conn);
       if ($results) {
@@ -73,6 +73,7 @@
 
     }
     ?>
+    
   </div>
 
 <?php include 'footer.html' ?>
