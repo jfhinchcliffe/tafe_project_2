@@ -15,7 +15,7 @@
     }
     else {
       while ($row = mysql_fetch_array($vehicle_results)) {
-        echo "<h1>Edit Vehicle</h1>";
+        echo "<h3>Edit Vehicle</h3>";
         echo "<FORM method='post' action='edit_vehicle_processor.php'>";
         if ($row[available] == 1) {
           echo '<p> Available?: <input type="checkbox" name="available" checked></p>';
@@ -61,10 +61,6 @@
         </p>
 
         <?php
-        // Loop to get all the manufacturers
-
-        //echo "<p> Available?: <input type="checkbox" name="available"></p>";
-        //echo "<p> Price: <input type="text" name ="price" size="40" value=$row[year]></p>";
         echo '<p> Year: <input type ="text" name="year" size="4" value=' . $row[year] . '></p>';
         echo '<p> Kilometres: <input type ="text" name="kilometres" size="20" value=' . $row[kilometres] . '></p>';
         echo '<p> Colour: <input type ="text" name="colour" size="20" value=' . $row[colour] . '></p>';

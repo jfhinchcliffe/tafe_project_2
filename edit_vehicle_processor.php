@@ -71,6 +71,6 @@
 
 
     echo "Vehicle updated: ";
-    echo "<a href=edit_vehicle.php?id=$stock_no>";
+    echo "<a href=edit_vehicle.php?id=" . $_POST['stock_no'] . ">";
     echo "Back to Edit Vehicle</a>";
    ?>
