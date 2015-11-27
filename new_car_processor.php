@@ -1,14 +1,3 @@
-
-<?php
-  //checking for values in customer form. Doing this up here because header won't work otherwise.
-  /* if (($_POST['price']== "")||
-      ($_POST['description']== "")|| ($_POST['manufacturer'] == "") || ($_POST['model'] == "") || ($_POST['category'] == "") || ($_POST['year'] == "") || ($_POST['kilometres'] == "")){
-    header("Location: add_vehicle.php");
-    exit;
-  }
-  */
-  //ensure that the phone number is an integer.
-?>
 <?php
   $manufacturer = $_POST['manufacturer'];
   $manufacturer_id =  0;

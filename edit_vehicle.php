@@ -16,7 +16,7 @@
     else {
       while ($row = mysql_fetch_array($vehicle_results)) {
         echo "<h1>Edit Vehicle</h1>";
-        echo "<FORM method='post' action='edit_car_processor.php'>";
+        echo "<FORM method='post' action='edit_vehicle_processor.php'>";
         if ($row[available] == 1) {
           echo '<p> Available?: <input type="checkbox" name="available" checked></p>';
         } else {
@@ -77,25 +77,46 @@
         echo '<input type ="hidden" name="stock_no" value="' . $row[stock_no] . '">';
         echo '<input type ="hidden" name="formtype" value="edit_car">';
 
-        echo '<input type="submit" name="submit" value= "Submit">';
+        echo '<input type="submit" name="submit" value= "Update">';
         echo '<input type ="reset" name="reset" value ="Reset">';
         echo "</form>";
       }
     }
   } else {
       require_once('config.php');
-
+      $column_counter = 0;
       $query = "SELECT * FROM car";
       $results = mysql_query($query, $conn);
+      echo "<h2>Select vehicle to edit</h2>";
+      echo "<table>";
       if (!$results) {
         die ("Error selecting car data: " .mysql_error());
       }
         else {
           while ($row = mysql_fetch_array($results)) {
-            echo "<a href=edit_vehicle.php?id=$row[stock_no]>";
-            echo "<p> $row[registration] </p>";
+            if ($column_counter == 0) {
+              echo "<tr>";
+              echo "<td>";
+              echo "<a href=edit_vehicle.php?id=$row[stock_no]>";
+              echo "<p> $row[registration] </p>";
+              echo "</td>";
+              $column_counter++;
+            } else if ($column_counter == 1) {
+              echo "<td>";
+              echo "<a href=edit_vehicle.php?id=$row[stock_no]>";
+              echo "<p> $row[registration] </p>";
+              echo "</td>";
+              $column_counter++;
+            } else {
+              echo "<td>";
+              echo "<a href=edit_vehicle.php?id=$row[stock_no]>";
+              echo "<p> $row[registration] </p>";
+              echo "</td>";
+              $column_counter = 0;
+            }
           }
         }
+        echo "</table>";
       }
 ?>
 
