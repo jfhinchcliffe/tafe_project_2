@@ -67,16 +67,21 @@
       $on_special = 0;
     }
     // Insert our data
-    $sql = "INSERT INTO car ( available, price, description, on_special, manufacturer, model, category, year, kilometres, colour, registration, vin, cylinders, fuel, transmission, image ) VALUES ( '$available', '{$mysqli->real_escape_string($_POST['price'])}', '{$mysqli->real_escape_string($_POST['description'])}', '$on_special', '$manufacturer_id', '{$mysqli->real_escape_string($_POST['model'])}', '$category_id', '{$mysqli->real_escape_string($_POST['year'])}', '{$mysqli->real_escape_string($_POST['kilometres'])}', '{$mysqli->real_escape_string($_POST['colour'])}', '{$mysqli->real_escape_string($_POST['registration'])}', '{$mysqli->real_escape_string($_POST['vin'])}', '{$mysqli->real_escape_string($_POST['cylinders'])}', '{$mysqli->real_escape_string($_POST['fuel'])}', '{$mysqli->real_escape_string($_POST['transmission'])}', '{$mysqli->real_escape_string($_POST['image'])}' )";
-    $insert = $mysqli->query($sql);
+    echo $_POST['price'];
+    $sql = mysql_query("UPDATE car
+         SET available = '.$available.',
+         SET price = '".mysql_real_escape_string($_POST['price'])."'
+         WHERE stock_no='".mysql_real_escape_string($_POST['stock_no'])."'");
+
+    $update = $mysqli->query($sql);
 
 
-    if ( $insert ) {
-      echo "Success! Row ID: {$mysqli->insert_id}";
+    /*if ( $udpate ) {
+      echo "Success! Row ID: {$mysqli->update_id}";
       echo "<a href=add_vehicle.php>Back to Add Vehicle</a>";
     } else {
       die("Error: {$mysqli->errno} : {$mysqli->error}");
-    }
+    } */
 
     // Close our connection
     $mysqli->close();

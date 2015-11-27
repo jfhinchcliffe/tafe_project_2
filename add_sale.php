@@ -58,6 +58,7 @@
 
     </form>
     <?php
+
       require_once('config.php');
       $salesperson_id = $_SESSION["logged_in"];
       $query = "SELECT * FROM sale WHERE salesperson_id = $salesperson_id";
@@ -73,7 +74,7 @@
 
     }
     ?>
-    
+
   </div>
 
 <?php include 'footer.html' ?>
