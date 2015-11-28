@@ -1,4 +1,26 @@
 <?php
+  session_start();
+  if(!$_SESSION["logged_in"]){
+    header("location:home.php");
+    die;
+  }
+?>
+<?php
+if (isset($_GET["id"])){
+  $manufacturer_id = $_GET["id"];
+
+  require_once('config.php');
+
+  $manufacturer_query = "SELECT * FROM manufacturer WHERE manufacturer_id = $manufacturer_id";
+  $manufacturer_results = mysql_query($manufacturer_query, $conn);
+  if (!$manufacturer_results) {
+    die ("Error selecting customer data: " .mysql_error());
+  } else {
+  while ($row = mysql_fetch_array($manufacturer_results)) {
+    echo "Test";
+  }
+}}
+
 // Only process the form if $_POST isn't empty
 if ( ! empty( $_POST ) ) {
 
@@ -44,7 +66,7 @@ if ( ! empty( $_POST ) ) {
 }
 else {
   while ($row = mysql_fetch_array($results)) {
-    echo "<p> $row[name] </p>";
+    echo "<p><a href=manufacturer.php?id=$row[manufacturer_id]>$row[name]</a> </p>";
   }
 }
 ?>

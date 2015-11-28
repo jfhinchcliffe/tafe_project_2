@@ -18,7 +18,18 @@ if ( ! empty( $_POST ) ) {
   }
 
   // Insert our data
-  $sql = "INSERT INTO category (description) VALUES ( '{$mysqli->real_escape_string($_POST['description'])}' )";
+  $sql = "INSERT INTO salesperson (name, phone, email, password) VALUES(
+    '{$mysqli->real_escape_string($_POST['name'])}',
+    '{$mysqli->real_escape_string($_POST['phone'])}',
+    '{$mysqli->real_escape_string($_POST['email'])}',
+    '{$mysqli->real_escape_string($_POST['password'])}')";
+
+  echo "INSERT INTO salesperson (name, phone, email, password) VALUES(
+    '{$mysqli->real_escape_string($_POST['name'])}',
+    '{$mysqli->real_escape_string($_POST['phone'])}',
+    '{$mysqli->real_escape_string($_POST['email'])}',
+    '{$mysqli->real_escape_string($_POST['password'])}')";
+
   $insert = $mysqli->query($sql);
 
   // Print response from MySQL
@@ -37,23 +48,12 @@ if ( ! empty( $_POST ) ) {
 <div id="maincontent">
 
 <form method="post" action="">
-  <input name="description" type="text">
-  <input type="submit" value="Submit New Category">
+  <p>Name: <input name="name" type="text"></p>
+  <p>Phone: <input name="phone" type="text"></p>
+  <p>Email: <input name="email" type="text"></p>
+  <p>Password: <input name="password" type="text"></p>
+  <p><input type="submit" value="Submit New Salesperson"></p>
 </form>
 
-<?php
-  require_once('config.php');
-
-  $query = "SELECT * FROM category";
-  $results = mysql_query($query, $conn);
-  if (!$results) {
-    die ("Error selecting car data: " .mysql_error());
-}
-else {
-  while ($row = mysql_fetch_array($results)) {
-    echo "<p> $row[description] </p>";
-  }
-}
-?>
 <a href="vehicles.php">Back to Vehicles</a>
 <?php include 'footer.html' ?>

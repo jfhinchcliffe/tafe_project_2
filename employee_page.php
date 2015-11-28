@@ -32,6 +32,7 @@
     <a href="customers.php">Customers</a>
     <a href="vehicles.php">Vehicles</a>
     <a href="add_sale.php">Add a Sale</a>
+    <a href="add_salesperson.php">Add a Salesperson</a>
     <a href="logout.php">Log Out!</a>
 
   </div>
