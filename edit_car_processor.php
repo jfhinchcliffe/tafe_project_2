@@ -72,25 +72,6 @@ else {
      image = '".mysql_real_escape_string($_POST['image'])."'
      WHERE stock_no='".mysql_real_escape_string($_POST['stock_no'])."'";
 
-  echo "UPDATE car
-     SET available = '$available',
-     price = '".mysql_real_escape_string($_POST['price'])."',
-     description = '".mysql_real_escape_string($_POST['description'])."',
-     on_special = '$on_special',
-     manufacturer = '$manufacturer_id',
-     model = '".mysql_real_escape_string($_POST['model'])."',
-     category = '$category_id',
-     year = '".mysql_real_escape_string($_POST['year'])."',
-     kilometres = '".mysql_real_escape_string($_POST['kilometres'])."',
-     colour = '".mysql_real_escape_string($_POST['colour'])."',
-     registration = '".mysql_real_escape_string($_POST['registration'])."',
-     vin = '".mysql_real_escape_string($_POST['vin'])."',
-     cylinders = '".mysql_real_escape_string($_POST['cylinders'])."',
-     fuel = '".mysql_real_escape_string($_POST['fuel'])."',
-     transmission = '".mysql_real_escape_string($_POST['transmission'])."',
-     image = '".mysql_real_escape_string($_POST['image'])."'
-     WHERE stock_no='".mysql_real_escape_string($_POST['stock_no'])."'";
-
   $update = $mysqli->query($sql);
 
   echo "Car updated: ";

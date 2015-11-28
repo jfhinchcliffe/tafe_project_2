@@ -9,10 +9,14 @@
 
   <div id="maincontent">
 <?php
+
+echo '<h4><a href=manufacturer.php>Add new manufacturer</a>   <a href=category.php>Add new category</a></h4>';
+
 if (isset($_GET["id"])){
   $car_id = $_GET["id"];
 
   require_once('config.php');
+
 
   $car_query = "SELECT * FROM car WHERE stock_no = $car_id";
   $car_results = mysql_query($car_query, $conn);
@@ -76,6 +80,7 @@ if (isset($_GET["id"])){
       echo '<input type ="hidden" name="formtype" value="new_car">';
       echo '<input type="submit" name="submit" value= "Submit">';
     }
+    echo '<a href=vehicles.php>Back to all vehicles</a>';
   }
 } else {
   ?>
@@ -91,6 +96,7 @@ if (isset($_GET["id"])){
       <p>Manufacturer: <select name="manufacturer">
 
         <?php
+            require_once('config.php');
             $getData = mysql_query("SELECT * FROM manufacturer");
 
             while($viewData = mysql_fetch_array($getData))

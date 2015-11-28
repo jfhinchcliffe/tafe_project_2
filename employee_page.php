@@ -30,8 +30,7 @@
       }
     ?>
     <a href="customers.php">Customers</a>
-    <a href="add_vehicle.php">Add a Vehicle</a>
-    <a href="edit_vehicle.php">Edit Vehicle</a>
+    <a href="vehicles.php">Vehicles</a>
     <a href="add_sale.php">Add a Sale</a>
     <a href="logout.php">Log Out!</a>
 
