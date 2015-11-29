@@ -157,19 +157,16 @@ if (isset($_GET["id"])){
         die ("Error selecting car data: " .mysql_error());
     }
     else {
+      echo "<table>";
+      echo "<tr><th>Registration</th><th>Available</th><th>On Special</th></tr>";
       while ($row = mysql_fetch_array($results)) {
-        echo "<p><a href=vehicles.php?id=$row[stock_no]>$row[year]</a></p>";
-        echo "<p> $row[manufacturer] </p>";
-        echo "<p> $row[model] </p>";
-        echo "<p> $row[price] </p>";
-        echo "<p> $row[registration] </p>";
-        $rego = $row[registration];
-        $getData = mysql_query("SELECT * FROM images include WHERE car_registration = $rego");
-        while($viewData = mysql_fetch_array($getData))
-        {
-            echo $viewData['file'];
-        }
+        echo "<tr>";
+        echo "<td> <a href=vehicles.php?id=$row[stock_no]>$row[registration]</a></td>";
+        echo "<td> $row[available] </td>";
+        echo "<td> $row[on_special] </td>";
+        echo "<tr>";
       }
+      echo "</table>";
     }
   }
   ?>
