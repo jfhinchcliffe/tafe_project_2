@@ -5,7 +5,7 @@
     die;
   }
 ?>
-<?php include 'header.html' ?>
+<?php include 'header.php' ?>
   <div id="maincontent">
 
     <h3>Enter the Sale Information and Submit.</h3>
@@ -15,7 +15,7 @@
         <p>Car Registration #: <select name="registration">
           <?php
               require_once('config.php');
-              $getData = mysql_query("SELECT * FROM car WHERE available = 1");
+              $getData = mysql_query("SELECT * FROM car include WHERE available = 1");
 
               while($viewData = mysql_fetch_array($getData))
               {
@@ -61,7 +61,7 @@
 
       require_once('config.php');
       $salesperson_id = $_SESSION["logged_in"];
-      $query = "SELECT * FROM sale WHERE salesperson_id = $salesperson_id";
+      $query = "SELECT * FROM sale include WHERE salesperson_id = $salesperson_id";
       $results = mysql_query($query, $conn);
       if ($results) {
       while ($row = mysql_fetch_array($results)) {
@@ -77,4 +77,4 @@
 
   </div>
 
-<?php include 'footer.html' ?>
+<?php include 'footer.php' ?>

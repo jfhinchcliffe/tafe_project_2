@@ -6,8 +6,16 @@
 <body>
   <div id="container">
     <div id="topnav">
-      <a href="index.php">Home</a>|
-      <a href="employee_login.php">Employee Login</a>|
+      <a href="home.php">Home</a>|
+      <?php
+      session_start();
+      if($_SESSION["logged_in"]){
+        echo '<a href="employee_page.php">Employee Page</a>|';
+        echo '<a href="logout.php">Log Out!</a>|';
+      } else {
+        echo '<a href="employee_login.php">Employee Login</a>|';
+      }
+      ?>
       <a href="privacy_policy.php">Privacy Policy</a>
     </div>
     <div id="topbannerleft">

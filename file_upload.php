@@ -1,4 +1,11 @@
 <?php
+  session_start();
+  if(!$_SESSION["logged_in"]){
+    header("location:home.php");
+    die;
+  }
+?>
+<?php
 $stock_no = $_GET['id'];
 if(isset($_POST['btn-upload']))
 {
@@ -19,20 +26,16 @@ if(isset($_POST['btn-upload']))
 
 ?>
 
+<?php include 'header.php' ?>
+  <div id="maincontent">
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>File Upload and view With PHP and MySql</title>
-</head>
-<body>
-<form action="file_upload.php" method="post" enctype="multipart/form-data">
-<input type="file" name="file" />
-<?php echo '<input type ="hidden" name="stock_no" value="' . $stock_no . '">'; ?>
-<button type="submit" name="btn-upload">Upload</button>
-</form>
-TEST
-<?php echo '<a href=vehicles.php?id=' . $stock_no . '>Back to Car Page</a>'; ?>
+    <h3>Please select car image and upload</h3>
 
-</body>
-</html>
+    <form action="file_upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <?php echo '<input type ="hidden" name="stock_no" value="' . $stock_no . '">'; ?>
+    <button type="submit" name="btn-upload">Upload</button>
+    </form>
+    <?php echo '<a href=vehicles.php?id=' . $stock_no . '>Back to Car Page</a>'; ?>
+  </div>
+<?php include 'footer.php' ?>

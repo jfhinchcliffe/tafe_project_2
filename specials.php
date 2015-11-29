@@ -1,11 +1,11 @@
 
-<?php include 'header.html' ?>
+<?php include 'header.php' ?>
   <div id="maincontent">
 
     <?php
       require_once('config.php');
-
-      $query = "SELECT * FROM car WHERE on_special > 0";
+      // Selects cars that are both on special and available.
+      $query = "SELECT * FROM car include WHERE on_special > 0 AND available = 1";
       $results = mysql_query($query, $conn);
       if (!$results) {
         die ("Error selecting car data: " .mysql_error());
@@ -19,4 +19,4 @@
     ?>
 
   </div>
-<?php include 'footer.html' ?>
+<?php include 'footer.php' ?>

@@ -14,7 +14,7 @@
     die ("Error selecting car data: " .mysql_error());
   }
 ?>
-<?php include 'header.html' ?>
+<?php include 'header.php' ?>
 
   <div id="maincontent">
 
@@ -88,4 +88,4 @@
     ?>
 
   </div>
-<?php include 'footer.html' ?>
+<?php include 'footer.php' ?>

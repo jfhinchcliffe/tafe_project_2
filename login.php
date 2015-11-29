@@ -13,7 +13,7 @@
     die ("Could not locate w_c_a database" .mysql_error());
   }
   // Select salesperson that matches both username and password
-  $sql = "SELECT * FROM salesperson WHERE email= '$_POST[email]' AND password = '$_POST[password]'";
+  $sql = "SELECT * FROM salesperson include WHERE email= '$_POST[email]' AND password = '$_POST[password]'";
   $result = mysql_query($sql,$conn) or die(mysql_error());
   // if there's a value returned, assign the values to variables.
   if (mysql_num_rows($result) == 1){

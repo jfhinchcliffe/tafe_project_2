@@ -1,4 +1,4 @@
-<?php include 'header.html' ?>
+<?php include 'header.php' ?>
 
   <div id="maincontent">
 
@@ -8,7 +8,7 @@ $manufacturer = $_POST['manufacturer'];
 $manufacturer_id =  0;
 require_once('config.php');
 
-$query = "SELECT manufacturer_id FROM manufacturer WHERE name = '$manufacturer' LIMIT 1";
+$query = "SELECT manufacturer_id FROM manufacturer include WHERE name = '$manufacturer' LIMIT 1";
 $results = mysql_query($query, $conn);
 if (!$results) {
   die ("Error selecting car data: " .mysql_error());
@@ -24,7 +24,7 @@ else {
   $category_id =  0;
   require_once('config.php');
 
-  $query = "SELECT category_id FROM category WHERE description = '$category'";
+  $query = "SELECT category_id FROM category include WHERE description = '$category'";
   $results = mysql_query($query, $conn);
   if (!$results) {
     die ("Error selecting car data: " .mysql_error());
@@ -72,7 +72,7 @@ else {
      fuel = '".mysql_real_escape_string($_POST['fuel'])."',
      transmission = '".mysql_real_escape_string($_POST['transmission'])."',
      image = '".mysql_real_escape_string($_POST['image'])."'
-     WHERE stock_no='".mysql_real_escape_string($_POST['stock_no'])."'";
+     include WHERE stock_no='".mysql_real_escape_string($_POST['stock_no'])."'";
 
   $update = $mysqli->query($sql);
 
@@ -81,4 +81,4 @@ else {
   echo "Back to Edit Car</a>";
   ?>
 </div>
-<?php include 'footer.html' ?>
+<?php include 'footer.php' ?>

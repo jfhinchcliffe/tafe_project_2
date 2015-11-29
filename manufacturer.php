@@ -11,7 +11,7 @@ if (isset($_GET["id"])){
 
   require_once('config.php');
 
-  $manufacturer_query = "SELECT * FROM manufacturer WHERE manufacturer_id = $manufacturer_id";
+  $manufacturer_query = "SELECT * FROM manufacturer include WHERE manufacturer_id = $manufacturer_id";
   $manufacturer_results = mysql_query($manufacturer_query, $conn);
   if (!$manufacturer_results) {
     die ("Error selecting customer data: " .mysql_error());
@@ -47,7 +47,7 @@ if ( ! empty( $_POST ) ) {
   $mysqli->close();
 }
 ?>
-<?php include 'header.html' ?>
+<?php include 'header.php' ?>
 
 <div id="maincontent">
 
@@ -71,4 +71,4 @@ else {
 }
 ?>
 <a href="vehicles.php">Back to Vehicles</a>
-<?php include 'footer.html' ?>
+<?php include 'footer.php' ?>

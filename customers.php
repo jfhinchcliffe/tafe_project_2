@@ -5,7 +5,7 @@
     die;
   }
 ?>
-<?php include 'header.html'; ?>
+<?php include 'header.php'; ?>
 <div id='maincontent'>
 
 <?php
@@ -15,7 +15,7 @@
 
     require_once('config.php');
 
-    $customer_query = "SELECT * FROM customer WHERE customer_id = $customer_id";
+    $customer_query = "SELECT * FROM customer include WHERE customer_id = $customer_id";
     $customer_results = mysql_query($customer_query, $conn);
     if (!$customer_results) {
       die ("Error selecting car data: " .mysql_error());
@@ -76,4 +76,4 @@
 <a href="customers.php">Back to Customers Page</a>
 
 </div>
-<?php include 'footer.html' ?>
+<?php include 'footer.php' ?>

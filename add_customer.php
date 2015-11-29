@@ -5,7 +5,7 @@
     die;
   }
 ?>
-<?php include 'header.html' ?>
+<?php include 'header.php' ?>
   <div id="maincontent">
 
     <h3>Enter the customer information and submit.</h3>
@@ -42,4 +42,4 @@
     ?>
   </div>
 
-<?php include 'footer.html' ?>
+<?php include 'footer.php' ?>

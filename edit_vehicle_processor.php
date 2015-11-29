@@ -3,7 +3,7 @@
   $manufacturer_id =  0;
   require_once('config.php');
 
-  $query = "SELECT manufacturer_id FROM manufacturer WHERE name = '$manufacturer' LIMIT 1";
+  $query = "SELECT manufacturer_id FROM manufacturer include WHERE name = '$manufacturer' LIMIT 1";
   $results = mysql_query($query, $conn);
   if (!$results) {
     die ("Error selecting car data: " .mysql_error());
@@ -18,7 +18,7 @@
     $category_id =  0;
     require_once('config.php');
 
-    $query = "SELECT category_id FROM category WHERE description = '$category'";
+    $query = "SELECT category_id FROM category include WHERE description = '$category'";
     $results = mysql_query($query, $conn);
     if (!$results) {
       die ("Error selecting car data: " .mysql_error());
@@ -66,7 +66,7 @@
          fuel = '".mysql_real_escape_string($_POST['fuel'])."',
          transmission = '".mysql_real_escape_string($_POST['transmission'])."',
          image = '".mysql_real_escape_string($_POST['image'])."'
-         WHERE stock_no='".mysql_real_escape_string($_POST['stock_no'])."'");
+         include WHERE stock_no='".mysql_real_escape_string($_POST['stock_no'])."'");
     $update = $mysqli->query($sql);
 
 

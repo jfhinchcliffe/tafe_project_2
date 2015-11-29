@@ -14,7 +14,7 @@
     exit;
   }
 ?>
-<?php include 'header.html' ?>
+<?php include 'header.php' ?>
 <div id="maincontent">
   <?php
     // Connect to MySQL
@@ -42,4 +42,4 @@
 
   ?>
 </div>
-<?php include 'footer.html' ?>
+<?php include 'footer.php' ?>

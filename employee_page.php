@@ -6,7 +6,7 @@
   }
 ?>
 
-<?php include 'header.html' ?>
+<?php include 'header.php' ?>
   <div id="maincontent">
     <?php
       echo ("User ID " . $_COOKIE[logged_in] . " is set!");
@@ -14,7 +14,7 @@
       <?php
         require_once('config.php');
         $salesperson_id = $_SESSION["logged_in"];
-        $query = "SELECT * FROM salesperson WHERE salesperson = $salesperson_id";
+        $query = "SELECT * FROM salesperson include WHERE salesperson = $salesperson_id";
         $results = mysql_query($query, $conn);
         if (!$results) {
           die ("Error selecting customer data: " .mysql_error());
@@ -33,7 +33,6 @@
     <a href="vehicles.php">Vehicles</a>
     <a href="add_sale.php">Add a Sale</a>
     <a href="add_salesperson.php">Add a Salesperson</a>
-    <a href="logout.php">Log Out!</a>
 
   </div>
-<?php include 'footer.html' ?>
+<?php include 'footer.php' ?>

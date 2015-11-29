@@ -5,7 +5,7 @@
     die;
   }
 ?>
-<?php include 'header.html' ?>
+<?php include 'header.php' ?>
 
   <div id="maincontent">
 <?php
@@ -18,7 +18,7 @@ if (isset($_GET["id"])){
   require_once('config.php');
 
 
-  $car_query = "SELECT * FROM car WHERE stock_no = $car_id";
+  $car_query = "SELECT * FROM car include WHERE stock_no = $car_id";
   $car_results = mysql_query($car_query, $conn);
   if (!$car_results) {
     die ("Error selecting customer data: " .mysql_error());
@@ -84,7 +84,7 @@ if (isset($_GET["id"])){
     echo '<a href=file_upload.php?id=' . $car_id .'>Upload Image</a></h4>';
     ?>
       <?php
-          $getData = mysql_query("SELECT file FROM images WHERE stock_no = $car_id");
+          $getData = mysql_query("SELECT file FROM images include WHERE stock_no = $car_id");
 
           while($viewData = mysql_fetch_array($getData))
           {
@@ -164,7 +164,7 @@ if (isset($_GET["id"])){
         echo "<p> $row[price] </p>";
         echo "<p> $row[registration] </p>";
         $rego = $row[registration];
-        $getData = mysql_query("SELECT * FROM images WHERE car_registration = $rego");
+        $getData = mysql_query("SELECT * FROM images include WHERE car_registration = $rego");
         while($viewData = mysql_fetch_array($getData))
         {
             echo $viewData['file'];
@@ -174,4 +174,4 @@ if (isset($_GET["id"])){
   }
   ?>
   </div>
-<?php include 'footer.html' ?>
+<?php include 'footer.php' ?>

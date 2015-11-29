@@ -43,7 +43,7 @@ if ( ! empty( $_POST ) ) {
   $mysqli->close();
 }
 ?>
-<?php include 'header.html' ?>
+<?php include 'header.php' ?>
 
 <div id="maincontent">
 
@@ -56,4 +56,4 @@ if ( ! empty( $_POST ) ) {
 </form>
 
 <a href="vehicles.php">Back to Vehicles</a>
-<?php include 'footer.html' ?>
+<?php include 'footer.php' ?>

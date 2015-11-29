@@ -1,4 +1,4 @@
-<?php include 'header.html'; ?>
+<?php include 'header.php'; ?>
 <div id='maincontent'>
 
 <?php
@@ -8,7 +8,7 @@
 
     require_once('config.php');
 
-    $vehicle_query = "SELECT * FROM car WHERE stock_no = $vehicle_id";
+    $vehicle_query = "SELECT * FROM car include WHERE stock_no = $vehicle_id";
     $vehicle_results = mysql_query($vehicle_query, $conn);
     if (!$vehicle_results) {
       die ("Error selecting car data: " .mysql_error());
@@ -117,4 +117,4 @@
 ?>
 
 </div>
-<?php include 'footer.html' ?>
+<?php include 'footer.php' ?>

@@ -1,5 +1,5 @@
 <html>
-  <?php include 'header.html' ?>
+  <?php include 'header.php' ?>
   <head>
     <title>Salesperson Login</title>
   </head>
@@ -17,7 +17,7 @@
     </form>
     <?php print_r($_COOKIE); ?>
 
-    <?php include 'footer.html' ?>
+    <?php include 'footer.php' ?>
 
   </body>
 </html>

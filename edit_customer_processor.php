@@ -1,4 +1,4 @@
-<?php include 'header.html' ?>
+<?php include 'header.php' ?>
   <div id="maincontent">
 <?php
   // Pulling in hidden customer ID from post value
@@ -14,14 +14,14 @@
      address = '".mysql_real_escape_string($_POST['address'])."',
      phone = '".mysql_real_escape_string($_POST['phone'])."',
      email = '".mysql_real_escape_string($_POST['email'])."'
-     WHERE customer_id='".mysql_real_escape_string($_POST['customer_id'])."'";
+     include WHERE customer_id='".mysql_real_escape_string($_POST['customer_id'])."'";
 
      echo ("UPDATE customer
         SET name = '".mysql_real_escape_string($_POST['name'])."',
         address = '".mysql_real_escape_string($_POST['address'])."',
         phone = '".mysql_real_escape_string($_POST['phone'])."',
         email = '".mysql_real_escape_string($_POST['email'])."'
-        WHERE customer_id='".mysql_real_escape_string($_POST['customer_id'])."'");
+        include WHERE customer_id='".mysql_real_escape_string($_POST['customer_id'])."'");
   $update = $mysqli->query($sql);
 
   echo "Customer updated: ";
@@ -29,4 +29,4 @@
   echo "Back to Edit Customer</a>";
   ?>
 </div>
-<?php include 'footer.html' ?>
+<?php include 'footer.php' ?>
