@@ -1,5 +1,7 @@
 <?php include 'header.html' ?>
+
   <div id="maincontent">
+
 <?php
 
 $manufacturer = $_POST['manufacturer'];

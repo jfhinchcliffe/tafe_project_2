@@ -10,7 +10,7 @@
   <div id="maincontent">
 <?php
 
-echo '<h4><a href=manufacturer.php>Add new manufacturer</a>   <a href=category.php>Add new category</a></h4>';
+echo '<h4><a href=manufacturer.php>Add new manufacturer</a>   <a href=category.php>Add new category</a>';
 
 if (isset($_GET["id"])){
   $car_id = $_GET["id"];
@@ -26,7 +26,7 @@ if (isset($_GET["id"])){
   else {
     while ($row = mysql_fetch_array($car_results)) {
       echo '<h3>Edit car information and submit.</h3>';
-      echo '<FORM method="post" action="edit_car_processor.php">';
+      echo '<FORM enctype="multipart/form-data"method="post" action="edit_car_processor.php">';
       if ($row["available"] == 1 ){
         echo '<p> Available?: <input type="checkbox" name="available" checked></p>';
       } else {
@@ -78,16 +78,29 @@ if (isset($_GET["id"])){
       echo '<p> image: <input type ="text" name="phone" size="20" value = ' . $row[image] .'></p>';
       echo '<input type ="hidden" name="stock_no" value="' . $row[stock_no] . '">';
       echo '<input type ="hidden" name="formtype" value="new_car">';
-      echo '<input type="submit" name="submit" value= "Submit">';
+      echo '<input type="submit" name="btn-submit_edit_car" value= "Submit">';
     }
-    echo '<a href=vehicles.php>Back to all vehicles</a>';
+    echo '<p><a href=vehicles.php>Back to all vehicles</a></p>';
+    echo '<a href=file_upload.php?id=' . $car_id .'>Upload Image</a></h4>';
+    ?>
+      <?php
+          $getData = mysql_query("SELECT file FROM images WHERE stock_no = $car_id");
+
+          while($viewData = mysql_fetch_array($getData))
+          {
+              echo '<img src="uploads/' . $viewData['file'] . '" width="100">';
+           }
+      ?>
+      <?php
+
   }
+
 } else {
   ?>
 
     <h3>Enter new car information and submit.</h3>
 
-    <FORM method="post" action="new_car_processor.php">
+    <FORM enctype="multipart/form-data" method="post" action="new_car_processor.php">
 
       <p> Available?: <input type="checkbox" name="available"></p>
       <p> Price: <input type="text" name ="price" size="40"></p>
@@ -149,9 +162,15 @@ if (isset($_GET["id"])){
         echo "<p> $row[manufacturer] </p>";
         echo "<p> $row[model] </p>";
         echo "<p> $row[price] </p>";
+        echo "<p> $row[registration] </p>";
+        $rego = $row[registration];
+        $getData = mysql_query("SELECT * FROM images WHERE car_registration = $rego");
+        while($viewData = mysql_fetch_array($getData))
+        {
+            echo $viewData['file'];
+        }
       }
     }
-
   }
   ?>
   </div>
