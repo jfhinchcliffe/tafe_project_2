@@ -152,7 +152,6 @@ if (isset($_GET["id"])){
       require_once('config.php');
 
       $query = "SELECT * FROM car";
-      $results = mysql_query($query, $conn);
       if (!$results) {
         die ("Error selecting car data: " .mysql_error());
     }
