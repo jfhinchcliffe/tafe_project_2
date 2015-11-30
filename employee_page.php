@@ -8,9 +8,6 @@
 
 <?php include 'header.php' ?>
   <div id="maincontent">
-    <?php
-      echo ("User ID " . $_COOKIE[logged_in] . " is set!");
-    ?>
       <?php
         require_once('config.php');
         $salesperson_id = $_SESSION["logged_in"];
@@ -21,18 +18,26 @@
       }
       else {
         while ($row = mysql_fetch_array($results)) {
-          echo "Employee Information";
-          echo "<p> $row[name] </p>";
-          echo "<p> $row[address] </p>";
-          echo "<p> $row[phone] </p>";
-          echo "<p> $row[email] </p>";
+          echo '<div id="employee_information">';
+          echo "<h3>Employee Information</h3>";
+          echo "<table>";
+          echo "<tr><td><b>Name:</b></td><td> $row[name] </td></tr>";
+          echo "<tr><td><b>Address:</b></td><td> $row[address] </p>";
+          echo "<tr><td><b>Phone:</b></td><td> $row[phone] </td></tr>";
+          echo "<tr><td><b>Email:</b></td><td> $row[email] </td></tr>";
+          echo "</table>";
+          echo "</div>";
         }
       }
     ?>
-    <a href="customers.php">Customers</a>
-    <a href="vehicles.php">Vehicles</a>
-    <a href="add_sale.php">Add a Sale</a>
-    <a href="add_salesperson.php">Add a Salesperson</a>
+    <div id="employee_links">
+      <ul>
+        <li><a href="customers.php">Customers</a></li>
+        <li><a href="vehicles.php">Vehicles</a></li>
+        <li><a href="add_sale.php">Add a Sale</a></li>
+        <li><a href="add_salesperson.php">Add a Salesperson</a></li>
+      </ul>
+    </div>
 
   </div>
 <?php include 'footer.php' ?>

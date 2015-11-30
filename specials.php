@@ -23,8 +23,11 @@
     }
     else {
       while ($row = mysql_fetch_array($results)) {
-        echo '<p><a href=all_vehicles.php?id=' . $row[stock_no] . '> ' . $row[year] . ' ' . $row[name] . ' ' . $row[model] . '</a>';
+        echo '<div id="specials_vehicle_container">';
+        echo '<p><h3><a href=all_vehicles.php?id=' . $row[stock_no] . '> ' . $row[year] . ' ' . $row[name] . ' ' . $row[model] . '</a></h3>';
         echo '<p>Going for $' . $row[price] .'</p>';
+        echo '<hr>';
+        echo '</div>';
       }
     }
     ?>
