@@ -11,7 +11,6 @@
   else {
     while ($row = mysql_fetch_array($results)) {
       $manufacturer_id = $row[manufacturer_id];
-      echo $manufacturer_id;
     }
   }
   ?>
@@ -28,7 +27,6 @@
     else {
       while ($row = mysql_fetch_array($results)) {
         $category_id = $row[category_id];
-        echo $category_id;
       }
     }
     ?>
@@ -62,7 +60,7 @@
 
     if ( $insert ) {
       echo "Success! Row ID: {$mysqli->insert_id}";
-      echo "<a href=add_vehicle.php>Back to Add Vehicle</a>";
+      echo "<a href=vehicles.php>Back to Vehicles</a>";
     } else {
       die("Error: {$mysqli->errno} : {$mysqli->error}");
     }

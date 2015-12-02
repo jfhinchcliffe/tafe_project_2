@@ -46,14 +46,16 @@ if ( ! empty( $_POST ) ) {
 <?php include 'header.php' ?>
 
 <div id="maincontent">
-
+<div id="car_form_all">
 <form method="post" action="">
-  <p>Name: <input name="name" type="text"></p>
-  <p>Phone: <input name="phone" type="text"></p>
-  <p>Email: <input name="email" type="text"></p>
-  <p>Password: <input name="password" type="text"></p>
-  <p><input type="submit" value="Submit New Salesperson"></p>
+  <table class="car_table">
+  <tr><td>Name:</td><td><input name="name" type="text"></td></tr>
+  <tr><td>Phone:</td><td><input name="phone" type="text"></td></tr>
+  <tr><td>Email:</td><td><input name="email" type="text"></td></tr>
+  <tr><td>Password:</td><td><input name="password" type="text"></td></tr>
+  <tr><td><input type="submit" value="Submit New Salesperson"></td></tr>
 </form>
-
-<a href="vehicles.php">Back to Vehicles</a>
+</table>
+</div>
+</div>
 <?php include 'footer.php' ?>

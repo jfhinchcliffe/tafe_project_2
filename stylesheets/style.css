@@ -3,7 +3,7 @@ a:hover {
 }
 
 body {
-  background-color: lightblue;
+  background-color: #e2e3de;
   margin: 0px;
   padding: 0px;
   font-family: sans-serif;
@@ -19,14 +19,16 @@ body {
 }
 
 #container #topnav a {
-  padding: .5em;
-  margin: .5em;
+  padding: .2em;
+  margin: .2em;
+  font-size: 12px;
+  font-color: #343431;
 }
 
 #container #topbannerleft {
   width: 50%;
   float: left;
-  background-color: purple;
+  background-color: #e2e3de;
   margin-bottom: 10px;
   height: 100px;
 }
@@ -38,13 +40,13 @@ body {
 #container #topbannerright {
   width: 50%;
   float: right;
-  background-color: purple;
+  background-color: #e2e3de;
   text-align: right;
   height: 100px;
 }
 
 #container #header {
-  background-color: blue;
+  background-color: #bec1b4;
 }
 
 #container #header #navbar {
@@ -70,33 +72,37 @@ body {
   display: inline-block;
   line-height: 50px;
   text-decoration: none;
-  background-color: #b40c00;
+  background-color: #323131;
   color: #fff;
   padding-right: 10px;
   padding-left: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 #container #header #navbar ul li a:hover, a:active {
-	color: #e86600;
+	color: #009933;
 }
 
 #maincontent {
-  background-color: green;
+  background-color: #d0d1cc;
   height: auto;
   width: auto;
   padding: 10px;
 }
 
 #footer {
-  background-color: pink;
+  background-color: #d0d1cc;
   margin-top: 10px;
   text-align: right;
+  border-radius: 5px;
+  font-size: 12px;
 }
 
 #vehicle_category_header{
   padding: .5em;
   margin: .5em;
-  background-color: pink;
+  background-color: #d0d1cc;
   text-align: center;
 }
 
@@ -105,8 +111,9 @@ body {
 }
 
 #vehicle_container {
-  background-color: pink;
+  background-color: #a1a199;
   padding: .5em;
+  border-radius: 10px;
 }
 
 #vehicle_details {
@@ -116,47 +123,94 @@ body {
 
 #vehicle_desc{
   display: inline-block;
-  background-color: blue;
+  background-color: #a1a199;
   width: 40%;
   vertical-align: top;
 }
 
 #vehicle_image{
   display: inline-block;
-  background-color: blue;
+  background-color: #a1a199;
   text-align: center;
   width: 30%;
 }
 
+#vehicle_image img {
+  max-width: 200px;
+}
+
 #specials_vehicle_container {
   padding: .5em;
-  background-color: pink;
+  background-color: ;
   text-align: center;
 }
 
 #login_container {
   padding: .5em;
-  background-color: pink;
+  background-color: #bec1b4;
   text-align: center;
 }
 #employee_information {
   padding: .5em;
-  background-color: pink;
+  background-color: #bec1b4;
   display: inline-block;
-  width: 40%;
+  width: 45%;
   vertical-align: top;
 }
 #employee_links {
   padding: .5em;
-  background-color: pink;
+  background-color: #bec1b4;
+  display: inline-block;
+  width: 20%;
+  vertical-align: top;
+
+}
+#customer_display {
+  padding: .5em;
+  background-color: #bec1b4;
   display: inline-block;
   width: 40%;
   vertical-align: bottom;
 }
-#customer_display {
-  padding: .5em;
+
+#car_form {
   background-color: pink;
-  display: inline-block;
   width: 40%;
-  vertical-align: bottom;
+  display: inline-block;
+}
+#car_image_upload {
+  background-color: #bec1b4;
+  width: 40%;
+  display: inline-block;
+  vertical-align: top;
+  padding: .5em;
+}
+
+#car_image_upload img {
+  width: 200px;
+  display: block;
+  margin: auto;
+}
+
+table.car_table {
+  text-align: center;
+}
+
+#car_form_container {
+  text-align: center;
+
+}
+
+#car_form_all {
+  background-color: #bec1b4;
+  padding: .5em;
+  display: inline-block;
+}
+
+#car_table {
+  background-color: #bec1b4;
+  width: 50%;
+  margin: 0 auto;
+  padding: .5em;
+  display: inline-block;
 }

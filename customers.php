@@ -27,13 +27,14 @@
         echo "<FORM method='post' action='edit_customer_processor.php'>";
           echo '<tr><td> Name: </td><td><input type="text" name="name" size = "40" value=' . $row[name] . '></td></tr>';
           echo '<tr><td> Address: </td><td><input type="text" name ="address" size="40" value=' . $row[address] . '></td></tr>';
-          echo '<tr><td> Email: </td><td><input type="text" name="email" value=' . $row[email] . '></td></tr>';
+          echo '<tr><td> Email: </td><td><input type="text" name="email" size="30" value=' . $row[email] . '></td></tr>';
           echo '<tr><td> Phone: </td><td><input type ="text" name="phone" size="20" value=' . $row[phone] . '></td></tr>';
           echo '<input type ="hidden" name="customer_id" value="' . $row[customer_id] . '">';
           echo '<input type ="hidden" name="formtype" value="edit_customer">';
           echo '<tr><td><input type="submit" name="submit" value= "Update"></td>';
         echo '</form>';
         echo '</table>';
+        echo '<a href="customers.php">Back to Customers Page</a>';
       }
     }
   } else {
@@ -47,7 +48,7 @@
       echo '<table>';
       echo '<tr><td>Name: </td><td><input type="text" name="name" size = "40"></td></tr>';
       echo '<tr><td>Address: </td><td><input type="textarea" name ="address" size="40"></td></tr>';
-      echo '<tr><td> Email: </td><td><input type="text" name="email"></td></tr>';
+      echo '<tr><td> Email: </td><td><input type="text" name="email" size="30"></td></tr>';
       echo '<tr><td> Phone: </td><td><input type ="text" name="phone" size="20"></td></tr>';
       echo '<input type ="hidden" name="formtype" value="new_customer">';
       echo '<td><input type="submit" name="submit" value= "Submit"></td>';
@@ -78,7 +79,6 @@
   }
       }
 ?>
-<a href="customers.php">Back to Customers Page</a>
 
 </div>
 <?php include 'footer.php' ?>

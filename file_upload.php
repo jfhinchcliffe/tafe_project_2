@@ -28,7 +28,7 @@ if(isset($_POST['btn-upload']))
 
 <?php include 'header.php' ?>
   <div id="maincontent">
-
+    <div id="car_form_all">
     <h3>Please select car image and upload</h3>
 
     <form action="file_upload.php" method="post" enctype="multipart/form-data">
@@ -37,5 +37,6 @@ if(isset($_POST['btn-upload']))
     <button type="submit" name="btn-upload">Upload</button>
     </form>
     <?php echo '<a href=vehicles.php?id=' . $stock_no . '>Back to Car Page</a>'; ?>
+  </div>
   </div>
 <?php include 'footer.php' ?>

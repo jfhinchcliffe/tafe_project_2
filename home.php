@@ -10,10 +10,10 @@
 
         while($viewData = mysql_fetch_array($getData))
         {
-            echo '<img src="uploads/' . $viewData['file'] . '" width="300">';
+            echo '<img src="uploads/' . $viewData['file'] . '" width="33%">';
          }
     ?>
-    
+
 
   </div>
 <?php include 'footer.php' ?>

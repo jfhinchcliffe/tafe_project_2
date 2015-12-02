@@ -56,7 +56,7 @@ if (isset($_GET["category"])){
         echo "<p> $row[description] </p>";
         echo '</div>';
         echo '<div id="vehicle_image">';
-        echo '<a href=all_vehicles.php?id=' . $row[stock_no] . '><img src="uploads/' . $row['file'] . '" width="250"></a>';
+        echo '<a href=all_vehicles.php?id=' . $row[stock_no] . '><img src="uploads/' . $row['file'] . '"></a>';
         echo '</div>';
         echo '</div>';
       }
@@ -138,7 +138,7 @@ if (isset($_GET["category"])){
             echo "<p> $row[description] </p>";
             echo '</div>';
             echo '<div id="vehicle_image">';
-            echo '<a href=all_vehicles.php?id=' . $row[stock_no] . '><img src="uploads/' . $row['file'] . '" width="250"></a>';
+            echo '<a href=all_vehicles.php?id=' . $row[stock_no] . '><img src="uploads/' . $row['file'] . '"></a>';
             echo '</div>';
             echo '</div>';
             echo '<hr>';
