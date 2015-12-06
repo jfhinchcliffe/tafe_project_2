@@ -2,8 +2,6 @@
   <head>
     <title>West Coast Auto</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
-    <script src="/javascript/javascript.js"></script>
-
   </head>
 <body>
   <div id="container">
