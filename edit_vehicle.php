@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if(!$_SESSION["logged_in"]){
+    header("location:home.php");
+    die;
+  }
+?>
 <?php include 'header.php'; ?>
 <div id='maincontent'>
 

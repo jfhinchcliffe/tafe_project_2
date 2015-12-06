@@ -22,7 +22,6 @@
           echo "<h3>Employee Information</h3>";
           echo "<table>";
           echo "<tr><td><b>Name:</b></td><td> $row[name] </td></tr>";
-          echo "<tr><td><b>Address:</b></td><td> $row[address] </p>";
           echo "<tr><td><b>Phone:</b></td><td> $row[phone] </td></tr>";
           echo "<tr><td><b>Email:</b></td><td> $row[email] </td></tr>";
           echo "</table>";

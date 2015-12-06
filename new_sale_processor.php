@@ -1,4 +1,11 @@
 <?php
+  session_start();
+  if(!$_SESSION["logged_in"]){
+    header("location:home.php");
+    die;
+  }
+?>
+<?php
   $registration = $_POST['registration'];
   $stock_no =  0;
   //echo $registration;

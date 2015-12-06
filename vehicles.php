@@ -79,7 +79,6 @@ if (isset($_GET["id"])){
       echo '<tr><td>Cylinders:</td><td><input type ="text" name="cylinders" size="2" value = ' . $row[cylinders] .'></td></tr>';
       echo '<tr><td>Fuel:</td><td><input type ="text" name="fuel" size="20" value = ' . $row[fuel] .'></td></tr>';
       echo '<tr><td>Transmission:</td><td><input type ="text" name="transmission" size="20" value = ' . $row[transmission] .'></td></tr>';
-      echo '<tr><td>image:</td><td><input type ="text" name="phone" size="20" value = ' . $row[image] .'></td></tr>';
       echo '<input type ="hidden" name="stock_no" value="' . $row[stock_no] . '">';
       echo '<input type ="hidden" name="formtype" value="new_car">';
       echo '<tr><td><input type="submit" name="btn-submit_edit_car" value= "Submit"></td></tr>';

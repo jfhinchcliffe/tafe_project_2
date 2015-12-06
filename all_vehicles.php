@@ -37,7 +37,9 @@ if (isset($_GET["category"])){
   ON
   images.stock_no=car.stock_no
   WHERE
-  category=$category_id";
+  category=$category_id
+  AND
+  available = 1";
 
   $results = mysql_query($query, $conn);
   if (!$results) {
@@ -120,7 +122,9 @@ if (isset($_GET["category"])){
       INNER join
       images
       ON
-      images.stock_no=car.stock_no";
+      images.stock_no=car.stock_no
+      AND
+      available = 1";
       $results = mysql_query($query, $conn);
       if (!$results) {
         die ("Error selecting car data: " .mysql_error());
